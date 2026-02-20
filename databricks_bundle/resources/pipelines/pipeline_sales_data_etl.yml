@@ -1,0 +1,15 @@
+resources:
+  pipelines:
+    pipeline_sales_data_etl:
+      name: Sales Data ETL
+      libraries:
+        - glob:
+            include: ../../src/pipelines/Sales Data ETL/transformations/**
+      schema: gold
+      continuous: false
+      development: false
+      photon: true
+      channel: CURRENT
+      catalog: ${var.catalog_name}
+      serverless: true
+      root_path: ../../src/pipelines/Sales Data ETL
